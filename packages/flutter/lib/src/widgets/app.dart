@@ -1264,10 +1264,12 @@ class WidgetsApp extends StatefulWidget {
     // Keyboard traversal.
     SingleActivator(LogicalKeyboardKey.tab): NextFocusIntent(),
     SingleActivator(LogicalKeyboardKey.tab, shift: true): PreviousFocusIntent(),
+	SingleActivator(LogicalKeyboardKey.arrowDown): PreviousFocusIntent(),
+    SingleActivator(LogicalKeyboardKey.arrowUp): NextFocusIntent(),
 
     // Scrolling
-    SingleActivator(LogicalKeyboardKey.arrowUp): ScrollIntent(direction: AxisDirection.up),
-    SingleActivator(LogicalKeyboardKey.arrowDown): ScrollIntent(direction: AxisDirection.down),
+    SingleActivator(LogicalKeyboardKey.arrowUp, control: true): ScrollIntent(direction: AxisDirection.up),
+    SingleActivator(LogicalKeyboardKey.arrowDown, control: true): ScrollIntent(direction: AxisDirection.down),
     SingleActivator(LogicalKeyboardKey.arrowLeft): ScrollIntent(direction: AxisDirection.left),
     SingleActivator(LogicalKeyboardKey.arrowRight): ScrollIntent(direction: AxisDirection.right),
     SingleActivator(LogicalKeyboardKey.pageUp): ScrollIntent(direction: AxisDirection.up, type: ScrollIncrementType.page),
